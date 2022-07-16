@@ -12,6 +12,13 @@
       select="getCommentListById" javaType="List" ofType="com.sample.seungdols.domain.vo.Comment" />
   </resultMap>
 
+  <resultMap id="commentResult" type="com.sample.seungdols.domain.vo.Comment">
+    <id property="commentId" column="comment_id"/>
+    <result property="boardId" column="comment_board_id"/>
+    <result property="writer" column="comment_writer"/>
+    <result property="content" column="comment_content"/>
+  </resultMap>
+
   <resultMap id="boardWithCommentResult" type="com.sample.seungdols.domain.vo.Board">
     <id property="boardId" column="board_id"/>
     <result property="title" column="board_title"/>
