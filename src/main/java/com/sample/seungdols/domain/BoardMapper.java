@@ -10,4 +10,6 @@ public interface BoardMapper {
   Board getBoardById(Integer boardId);
 
   List<Comment> getCommentListById(Integer boardId);
+
+  Board selectBoardWithComment(Integer boardId);
 }

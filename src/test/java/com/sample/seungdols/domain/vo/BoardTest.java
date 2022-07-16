@@ -28,4 +28,13 @@ class BoardTest {
     assertThat(board.boardId).isEqualTo(boardId);
     assertThat(board.comments).isNull();
   }
+
+  @Test
+  public void selectBoardWithComment() {
+    Integer boardId = 1;
+
+    Board board = boardMapper.selectBoardWithComment(boardId);
+
+    assertThat(board.comments.size()).isGreaterThan(0);
+  }
 }

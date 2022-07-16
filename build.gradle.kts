@@ -21,11 +21,11 @@ springBoot {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:2.6.0")
 
-    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2")
+    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0")
     implementation("com.h2database:h2:2.1.214")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.2.2")
+    testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.2.0")
 }
 
 tasks.test {
