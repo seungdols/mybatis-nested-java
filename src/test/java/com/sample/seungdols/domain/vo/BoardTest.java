@@ -1,15 +1,18 @@
 package com.sample.seungdols.domain.vo;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import com.sample.seungdols.domain.BoardMapper;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 
+@AutoConfigureTestDatabase(replace = Replace.NONE)
 @MybatisTest
 class BoardTest {
+
   @Autowired
   BoardMapper boardMapper;
 
@@ -26,7 +29,7 @@ class BoardTest {
 
     assertThat(board).isNotNull();
     assertThat(board.boardId).isEqualTo(boardId);
-    assertThat(board.comments).isNull();
+    assertThat(board.comments).isNotNull();
   }
 
   @Test

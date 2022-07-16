@@ -8,15 +8,8 @@
     <id property="boardId" column="board_id"/>
     <result property="title" column="board_title"/>
     <result property="content" column="board_content"/>
-    <collection property="comments" column="boardId"
-      select="getCommentListById" javaType="List" ofType="commentResult" />
-  </resultMap>
-
-  <resultMap id="commentResult" type="com.sample.seungdols.domain.vo.Comment">
-    <id property="commentId" column="comment_id"/>
-    <result property="boardId" column="comment_board_id"/>
-    <result property="writer" column="comment_writer"/>
-    <result property="content" column="comment_content"/>
+    <collection property="comments" column="{boardId = board_id}"
+      select="getCommentListById" javaType="List" ofType="com.sample.seungdols.domain.vo.Comment" />
   </resultMap>
 
   <resultMap id="boardWithCommentResult" type="com.sample.seungdols.domain.vo.Board">
@@ -45,11 +38,11 @@
     WHERE board_id = #{boardId}
   </select>
 
-  <select id="getCommentListById" resultMap="commentResult">
-    SELECT comment_id,
-           board_id as comment_board_id,
-           writer as comment_writer,
-           content as comment_content
+  <select id="getCommentListById" resultType="com.sample.seungdols.domain.vo.Comment">
+    SELECT comment_id as commentId,
+           board_id as boardId,
+           writer as writer,
+           content as comment
     FROM comment
     WHERE board_id = #{boardId}
   </select>
